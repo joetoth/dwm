@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -1368,9 +1369,10 @@ propertynotify(XEvent *e)
 		resizebarwin(selmon);
 		updatesystray();
 	}
-	if ((ev->window == root) && (ev->atom == XA_WM_NAME))
-		updatestatus();
-	else if (ev->state == PropertyDelete)
+
+	updatestatus();
+
+	if (ev->state == PropertyDelete)
 		return; /* ignore */
 	else if ((c = wintoclient(ev->window))) {
 		switch(ev->atom) {
@@ -2242,9 +2244,11 @@ updatetitle(Client *c)
 
 void
 updatestatus(void)
-{
-	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
-		strcpy(stext, "dwm-"VERSION);
+{ 
+  time_t     now = time(0);
+  struct tm  tstruct;
+  tstruct = *localtime(&now);
+  strftime(stext, sizeof(stext), "%Y-%m-%d %H:%M", &tstruct);
 	drawbar(selmon);
 }
 
