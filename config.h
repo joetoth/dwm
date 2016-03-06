@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
+
 /* appearance */
 static const char *fonts[] = {
 	"monospace:size=10"
@@ -49,6 +50,11 @@ static const Layout layouts[] = {
 	{ "___",      htile },    /* first entry is default */
 };
 
+// For thinkpad
+static const char *upvol[]   = { "pactl", "set-sink-volume", "1", "+10%",     NULL };
+static const char *downvol[] = { "pactl", "set-sink-volume", "1", "-10%",     NULL };
+static const char *mutevol[] = { "pactl", "set-sink-mute",   "1", "toggle",   NULL };
+
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
@@ -67,6 +73,9 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+  { MODKEY,                       XK_F3,    spawn,          {.v = upvol   } },
+  { MODKEY,                       XK_F2,    spawn,          {.v = downvol } },
+  { MODKEY,                       XK_F1,     spawn,          {.v = mutevol } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
