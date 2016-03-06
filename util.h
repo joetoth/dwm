@@ -6,3 +6,4 @@
 
 void die(const char *errstr, ...);
 void *ecalloc(size_t, size_t);
+long get_battery_capacity();

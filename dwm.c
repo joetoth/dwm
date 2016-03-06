@@ -2248,8 +2248,10 @@ updatestatus(void)
 { 
   time_t     now = time(0);
   struct tm  tstruct;
+  char dt [256];
   tstruct = *localtime(&now);
-  strftime(stext, sizeof(stext), "%Y-%m-%d %H:%M", &tstruct);
+  strftime(dt, sizeof(dt), "%Y-%m-%d %H:%M", &tstruct);
+  sprintf(stext, "%li%% %s", get_battery_capacity(), dt);
 	drawbar(selmon);
 }
 

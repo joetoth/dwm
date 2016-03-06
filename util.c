@@ -31,3 +31,15 @@ die(const char *fmt, ...) {
 
 	exit(1);
 }
+
+long
+get_battery_capacity() {
+    long lnum1 = 0;
+    FILE *fp = NULL;
+    if ((fp = fopen("/sys/class/power_supply/BAT0/capacity", "r"))) {
+        fscanf(fp, "%ld\n", &lnum1);
+        fclose(fp);
+    }
+    return lnum1;
+}
+
