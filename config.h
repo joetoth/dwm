@@ -25,7 +25,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool focusonwheelscroll = False;
 
 /* tagging */
-static const char *tags[] = { "Work", "Net", "Misc" };
+static const char *tags[] = { "Work", "Misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -40,7 +40,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 // For thinkpad
 static const char *upvol[]   = { "pactl", "set-sink-volume", "1", "+10%",     NULL };
 static const char *downvol[] = { "pactl", "set-sink-volume", "1", "-10%",     NULL };
-static const char *mutevol[] = { "pactl", "set-sink-mute",   "1", "toggle",   NULL };
+static const char *mutevol[] = { "pactl", "set-sink-mute", "1", "toggle",     NULL };
 
 /* key definitions */
 #define MODKEY Mod4Mask
