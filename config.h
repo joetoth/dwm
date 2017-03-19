@@ -77,7 +77,7 @@ static Key keys[] = {
   { MODKEY,                       XK_F3,    spawn,          {.v = upvol   } },
   { MODKEY,                       XK_F2,    spawn,          {.v = downvol } },
   { MODKEY,                       XK_F1,     spawn,          {.v = mutevol } },
-	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_semicolon,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
         { MODKEY,                       XK_p,      spawn,          {.v = clipstercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
