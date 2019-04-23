@@ -12,7 +12,7 @@ ecalloc(size_t nmemb, size_t size)
 	void *p;
 
 	if (!(p = calloc(nmemb, size)))
-		perror(NULL);
+		die("calloc:");
 	return p;
 }
 
@@ -27,19 +27,9 @@ die(const char *fmt, ...) {
 	if (fmt[0] && fmt[strlen(fmt)-1] == ':') {
 		fputc(' ', stderr);
 		perror(NULL);
+	} else {
+		fputc('\n', stderr);
 	}
 
 	exit(1);
 }
-
-long
-get_battery_capacity() {
-    long lnum1 = 0;
-    FILE *fp = NULL;
-    if ((fp = fopen("/sys/class/power_supply/BAT0/capacity", "r"))) {
-        fscanf(fp, "%ld\n", &lnum1);
-        fclose(fp);
-    }
-    return lnum1;
-}
-
