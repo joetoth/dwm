@@ -53,9 +53,9 @@ static const Layout layouts[] = {
 };
 
 // For thinkpad
-static const char *upvol[]   = { "pactl", "set-sink-volume", "1", "+10%",     NULL };
-static const char *downvol[] = { "pactl", "set-sink-volume", "1", "-10%",     NULL };
-static const char *mutevol[] = { "pactl", "set-sink-mute",   "1", "toggle",   NULL };
+static const char *upvol[]   = { "pactl", "set-sink-volume", "0", "+10%",     NULL };
+static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-10%",     NULL };
+static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",   NULL };
 
 /* key definitions */
 #define MODKEY Mod4Mask
